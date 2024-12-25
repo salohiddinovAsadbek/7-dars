@@ -1,0 +1,75 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(46 / 19.2 * 1vw) calc(140 / 19.2 * 1vw);
+  background-color: #000000;
+}
+
+.navbar > a > img {
+  width: calc(196 / 19.2 * 1vw);
+  height: calc(56 / 19.2 * 1vw);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: calc(39 / 19.2 * 1vw);
+}
+
+nav > a {
+  font-family: Poppins, sans-serif;
+  font-size: calc(20 / 19.2 * 1vw);
+  font-weight: 500;
+  line-height: calc(30 / 19.2 * 1vw);
+  color: #707070;
+}
+
+nav > a:hover {
+  color: white;
+}
+
+.navbarLog {
+  display: flex;
+  align-items: center;
+  gap: calc(24 / 19.2 * 1vw);
+}
+
+.navbarLog > a {
+  font-family: Poppins, sans-serif;
+  font-size: calc(20 / 19.2 * 1vw);
+  font-weight: 500;
+  line-height: calc(30 / 19.2 * 1vw);
+  color: #707070;
+  transition: all 0.3s linear;
+}
+
+.navbarLog > a:hover {
+  color: white;
+}
+
+.signUpBtn {
+  width: calc(119 / 19.2 * 1vw);
+  height: calc(55 / 19.2 * 1vw);
+  background-color: #306ef7;
+  border: calc(3 / 19.2 * 1vw) solid black;
+  border-radius: calc(10 / 19.2 * 1vw);
+  cursor: pointer;
+  transition: all 0.3s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUpBtn:hover {
+  border: calc(3 / 19.2 * 1vw) solid #306ef7;
+  background-color: black;
+}
+
+.signUpBtn > a {
+  font-family: Poppins, sans-serif;
+  font-size: calc(20 / 19.2 * 1vw);
+  font-weight: 500;
+  line-height: calc(30 / 19.2 * 1vw);
+  color: white;
+}

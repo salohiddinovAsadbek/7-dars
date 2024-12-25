@@ -1,0 +1,69 @@
+.shareWrapper {
+  display: flex;
+  gap: calc(23 / 19.2 * 1vw);
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(176 / 19.2 * 1vw);
+}
+
+.shareWrapper > div {
+  position: relative;
+  height: calc(666 / 19.2 * 1vw);
+  width: calc(854 / 19.2 * 1vw);
+  background-color: #0d0d0d;
+  padding: calc(33 / 19.2 * 1vw) 0 0 calc(45 / 19.2 * 1vw);
+  overflow: hidden;
+}
+
+.shareWrapper > div > p {
+  font-family: Poppins, sans-serif;
+  font-size: calc(30 / 19.2 * 1vw);
+  font-weight: 400;
+  line-height: calc(45 / 19.2 * 1vw);
+  color: #0fc65c;
+}
+
+.shareWrapper > div > h1 {
+  font-family: Poppins, sans-serif;
+  font-size: calc(80 / 19.2 * 1vw);
+  font-weight: 600;
+  line-height: calc(120 / 19.2 * 1vw);
+  color: white;
+}
+
+.shareTitle {
+  color: #919191 !important;
+}
+
+.shareWrapper > div > img {
+  position: absolute;
+  width: calc(788 / 19.2 * 1vw);
+  height: calc(338 / 19.2 * 1vw);
+  bottom: 0;
+  right: calc(-117 / 19.2 * 1vw);
+}
+
+.shareBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(283 / 19.2 * 1vw) !important;
+  height: calc(74 / 19.2 * 1vw) !important;
+  background-color: #326cf9 !important;
+  border: calc(2 / 19.2 * 1vw) solid #326cf9 !important;
+  border-radius: calc(10 / 19.2 * 1vw) !important;
+  margin-top: calc(48 / 19.2 * 1vw) !important;
+}
+
+.shareBtn > a {
+  width: 100%;
+  height: 100%;
+  color: white !important;
+  font-family: Poppins, sans-serif;
+  font-size: calc(20 / 19.2 * 1vw) !important;
+  font-weight: 500;
+  line-height: calc(30 / 19.2 * 1vw) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

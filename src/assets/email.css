@@ -1,0 +1,3 @@
+.emailWrapper > div:last-child {
+  background-image: url("../img//email.png") !important;
+}
