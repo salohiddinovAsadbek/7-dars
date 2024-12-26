@@ -1,0 +1,130 @@
+.aboutTitle {
+  font-family: Poppins, sans-serif;
+  font-size: calc(75 / 19.2 * 1vw);
+  font-weight: 600;
+  line-height: calc(112 / 19.2 * 1vw);
+  text-align: center;
+  color: white;
+}
+
+.about {
+  padding: calc(122 / 19.2 * 1vw) calc(334 / 19.2 * 1vw) 0
+    calc(334 / 19.2 * 1vw);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.about > img {
+  width: calc(326 / 19.2 * 1vw);
+  height: calc(93 / 19.2 * 1vw);
+}
+
+.aboutMisson {
+  color: #306ef7;
+  font-family: Poppins, sans-serif;
+  font-size: calc(25 / 19.2 * 1vw);
+  font-weight: 600;
+  line-height: calc(38 / 19.2 * 1vw);
+  text-align: center;
+  margin-top: calc(49 / 19.2 * 1vw);
+}
+
+.about > p {
+  font-family: Poppins, sans-serif;
+  font-size: calc(28 / 19.2 * 1vw);
+  font-weight: 400;
+  line-height: calc(42 / 19.2 * 1vw);
+  color: white;
+}
+
+.about > p:nth-child(4) {
+  font-family: Poppins, sans-serif;
+  font-size: calc(30 / 19.2 * 1vw);
+  font-weight: 400;
+  line-height: calc(45 / 19.2 * 1vw);
+  text-align: center;
+  color: white;
+  margin-bottom: calc(186 / 19.2 * 1vw);
+}
+
+.about > p:nth-child(6) {
+  width: 100%;
+  font-family: Poppins, sans-serif;
+  font-size: calc(28 / 19.2 * 1vw);
+  font-weight: 600;
+  line-height: calc(42 / 19.2 * 1vw);
+  color: white;
+  text-align: left;
+  margin-top: calc(54 / 19.2 * 1vw);
+}
+
+.aboutLine {
+  width: 100%;
+  height: calc(1.5 / 19.2 * 1vw);
+  background-color: #828282;
+  margin-top: calc(57 / 19.2 * 1vw);
+}
+
+.ourTeam {
+  margin-top: calc(189 / 19.2 * 1vw);
+}
+
+.aboutWrapper {
+  display: flex;
+  gap: calc(214 / 19.2 * 1vw);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: calc(59 / 19.2 * 1vw);
+}
+
+.aboutWrapper > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutWrapper > div > img {
+  width: calc(112 / 19.2 * 1vw);
+  height: calc(112 / 19.2 * 1vw);
+  margin-bottom: calc(17 / 19.2 * 1vw);
+}
+
+.aboutWrapper > div > h1 {
+  font-family: Poppins, sans-serif;
+  font-size: calc(35 / 19.2 * 1vw);
+  font-weight: 700;
+  line-height: calc(52 / 19.2 * 1vw);
+  color: white;
+}
+
+.aboutWrapper > div > p:nth-child(3) {
+  font-family: Poppins, sans-serif;
+  font-size: calc(19 / 19.2 * 1vw);
+  font-weight: 400;
+  line-height: calc(28 / 19.2 * 1vw);
+  color: #7f7f7f;
+  text-align: center;
+  margin-bottom: calc(21 / 19.2 * 1vw);
+}
+
+.aboutWrapper > div > p:last-child {
+  display: flex;
+  gap: calc(8 / 19.2 * 1vw);
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutWrapper > div > p:last-child > span:first-child {
+  font-family: Poppins, sans-serif;
+  font-size: calc(20 / 19.2 * 1vw);
+  font-weight: 500;
+  line-height: calc(30 / 19.2 * 1vw);
+  color: white;
+}
+
+.aboutWrapper > div > p:last-child > span:last-child > img {
+  width: calc(14 / 19.2 * 1vw);
+  height: calc(16 / 19.2 * 1vw);
+}
