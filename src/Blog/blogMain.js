@@ -1,15 +1,5 @@
 import "../assets/blog.css";
 import Blog1 from "../img/blog1.svg";
-import Blog2 from "../img/blog2.svg";
-import Blog3 from "../img/blog3.svg";
-import Blog4 from "../img/blog4.svg";
-import Blog5 from "../img/blog5.svg";
-import Blog7 from "../img/blog7.svg";
-import Blog8 from "../img/blog8.svg";
-import Blog9 from "../img/blog9.svg";
-import Blog10 from "../img/blog10.svg";
-import Blog11 from "../img/blog11.svg";
-import Blog12 from "../img/blog12.svg";
 
 function BlogMain() {
   return (
