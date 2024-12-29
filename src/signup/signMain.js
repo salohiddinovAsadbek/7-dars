@@ -21,8 +21,10 @@ function SignMain() {
           password: userpassword,
           email: useremail,
         };
-
-        console.log("kop");
+        fetch("http://192.168.43.117:5000/user/createUser", {
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+        });
       } else if (userInfo.length === 0) {
         userInfo.push({
           name: username,

@@ -15,3 +15,65 @@
   font-weight: 400;
   line-height: calc(45 / 19.2 * 1vw);
 }
+
+.blogWrapper {
+  display: flex;
+  gap: calc(23 / 19.2 * 1vw);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 calc(331 / 19.2 * 1vw);
+  margin-top: calc(130 / 19.2 * 1vw);
+}
+
+.blogWrapper > div {
+  width: calc(403 / 19.2 * 1vw);
+  height: auto;
+  padding: calc(36 / 19.2 * 1vw) calc(48 / 19.8 * 1vw) calc(17 / 19.2 * 1vw)
+    calc(28 / 19.2 * 1vw);
+  border: calc(1 / 19.2 * 1vw) solid #707070;
+  border-radius: calc(15 / 19.2 * 1vw);
+}
+
+.blogWrapper > div > img {
+  width: calc(50 / 19.2 * 1vw);
+  height: calc(50 / 19.2 * 1vw);
+}
+
+.blogCardTitle {
+  font-family: Poppins, sans-serif;
+  font-size: calc(30 / 19.2 * 1vw);
+  font-weight: 600;
+  line-height: calc(45 / 19.2 * 1vw);
+  color: white;
+  margin-top: calc(17 / 19.2 * 1vw);
+  margin-bottom: calc(11 / 19.2 * 1vw);
+}
+
+.blogWrapper > div > p {
+  font-family: Poppins;
+  font-size: calc(23 / 19.2 * 1vw);
+  font-weight: 400;
+  line-height: calc(34 / 19.2 * 1vw);
+  color: #828282;
+}
+
+.blogBack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/blogBack.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: calc(301 / 19.2 * 1vw) calc(43 / 19.2 * 1vw) calc(288 / 19.2 * 1vw)
+    calc(341 / 19.2 * 1vw);
+}
+
+.blogBack > h1 {
+  font-family: Poppins, sans-serif;
+  font-size: calc(70 / 19.2 * 1vw);
+  font-weight: 600;
+  line-height: calc(105 / 19.2 * 1vw);
+  color: white;
+}
