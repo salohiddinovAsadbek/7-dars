@@ -6,12 +6,75 @@ import { NavLink } from "react-router";
 import logo from "../img/facebook.svg";
 import logo1 from "../img/google.svg";
 import logo2 from "../img/apple.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
+
 function SignMain() {
-  const [username, setUserName] = useState("");
+  let [username, setUserName] = useState("");
   let [userpassword, setUserPassword] = useState("");
-  const [useremail, setUserEmail] = useState("");
+  let [useremail, setUserEmail] = useState("");
   let userInfo = JSON.parse(localStorage.getItem("user")) || [];
+  let [userCheck, setUserCheck] = useState(null);
+  let current = new Date();
+
+  let currentMonth = current.getMonth();
+  switch (currentMonth) {
+    case 0:
+      currentMonth = "January";
+      break;
+    case 1:
+      currentMonth = "February";
+      break;
+    case 2:
+      currentMonth = "March";
+      break;
+    case 3:
+      currentMonth = "April";
+      break;
+    case 4:
+      currentMonth = "May";
+      break;
+    case 5:
+      currentMonth = "June";
+      break;
+    case 6:
+      currentMonth = "July";
+      break;
+    case 7:
+      currentMonth = "August";
+      break;
+    case 8:
+      currentMonth = "September";
+      break;
+    case 9:
+      currentMonth = "October";
+      break;
+    case 10:
+      currentMonth = "November";
+      break;
+    case 11:
+      currentMonth = "December";
+      break;
+    default:
+      currentMonth = "none";
+      break;
+  }
+
+  let currentDate = current.getDate();
+  switch (currentDate) {
+    case 1:
+      currentDate = "first";
+      break;
+    case 2:
+      currentDate = "second";
+      break;
+    case 3:
+      currentDate = "third";
+      break;
+    default:
+      currentDate += "th";
+      break;
+  }
 
   const signUp = () => {
     if (username !== "" && userpassword !== "" && useremail !== "") {
@@ -21,23 +84,68 @@ function SignMain() {
           password: userpassword,
           email: useremail,
         };
-        fetch("http://192.168.43.117:5000/user/createUser", {
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-        });
       } else if (userInfo.length === 0) {
         userInfo.push({
           name: username,
           password: userpassword,
           email: useremail,
         });
-
-        console.log("yoq");
       }
+
+      fetch("http://localhost:3000/users")
+        .then((response) => {
+          return response.json();
+        })
+        .then((response2) => {
+          response2.map((inson) => {
+            if (
+              inson.name === username &&
+              inson.userpassword === userpassword
+            ) {
+              setUserCheck(true);
+            } else {
+              setUserCheck(false);
+            }
+          });
+        });
+
+      setUserName("");
+      setUserPassword("");
+      setUserEmail("");
     }
+    toast.success("Good Job!");
 
     localStorage.setItem("user", JSON.stringify(userInfo));
   };
+
+  useEffect(() => {
+    if (userCheck) {
+      toast.error("Bunday foydalanuvchi mavjud");
+    } else {
+      fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: username,
+          mail: useremail,
+          userpassword: userpassword,
+          signUpDate: `${currentMonth} of the ${currentDate} in  ${current.getFullYear()} at ${current.getHours()} : ${current.getMinutes()}`,
+          updatedSignUp: `${currentMonth} of the ${currentDate} in  ${current.getFullYear()} at ${current.getHours()} : ${current.getMinutes()}`,
+        }),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [userCheck]);
 
   const [userEye, setShow] = useState("text");
   const [usecss, setLine] = useState("0vw");
@@ -51,48 +159,6 @@ function SignMain() {
     }
   };
 
-  let harflar = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
-  let belgilar =
-    "!@#$%^&*()_+{}|:>?<¡™£¢∞§¶•ªº–≠œ∑´®†¥¨ˆøπ“åß∂ƒ©˙∆˚¬…æ≈ç√∫˜µ≤≥÷";
-  let sonlar = "1234567890";
-
-  let [useKey, setCheck] = useState("");
-  let [enough, setEnough] = useState("");
-  const tek = (userpassword) => {
-    let harf = false;
-    let belgi = false;
-    let son = false;
-    let sum = 0;
-    for (let i = 0; i < harflar.length; i++) {
-      if (harflar.includes(userpassword[i]) && !harf) {
-        harf = true;
-        sum++;
-      }
-
-      if (belgilar.includes(userpassword[i]) && !belgi) {
-        belgi = true;
-        sum++;
-      }
-
-      if (sonlar.includes(userpassword[i]) && !son) {
-        son = true;
-        sum++;
-      }
-    }
-
-    setCheck(sum);
-
-    if (useKey === 1) {
-      setEnough("enough1");
-    } else if (useKey === 2) {
-      setEnough("enough2");
-    } else if (useKey === 3) {
-      setEnough("enough3");
-    } else {
-      setEnough("");
-    }
-  };
-
   return (
     <div className="signMain">
       <h1 className="signTitle">Sign up</h1>
@@ -103,6 +169,7 @@ function SignMain() {
             type="text"
             placeholder="Username"
             onChange={(e) => setUserName(e.target.value)}
+            value={username}
           />
           <button className="signUpBtns">
             <img src={User} alt="user" />
@@ -114,6 +181,7 @@ function SignMain() {
             type="text"
             placeholder="Email Address"
             onChange={(e) => setUserEmail(e.target.value)}
+            value={useremail}
           />
           <button className="signUpBtns">
             <img src={Email} alt="user" />
@@ -126,8 +194,8 @@ function SignMain() {
             placeholder="Password"
             onChange={(e) => {
               setUserPassword(e.target.value);
-              tek(e.target.value);
             }}
+            value={userpassword}
           />
           <button className="signUpBtns" onClick={Eyehide}>
             <img src={Eye} alt="user" />
@@ -138,9 +206,9 @@ function SignMain() {
             ></p>
           </button>
           <p className="enoughPassword">
+            {/* <span className={enough}></span>
             <span className={enough}></span>
-            <span className={enough}></span>
-            <span className={enough}></span>
+            <span className={enough}></span> */}
           </p>
         </div>
         <button onClick={signUp}>

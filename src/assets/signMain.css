@@ -81,6 +81,14 @@ body {
   height: calc(30 / 19.2 * 1vw);
 }
 
+.signForm > div > button {
+  background-color: inherit;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .signForm > div:nth-child(2) > button > img {
   width: calc(30 / 19.2 * 1vw);
   height: calc(30 / 19.2 * 1vw);
@@ -224,4 +232,12 @@ body {
 
 .enough3 {
   background-color: green;
+}
+
+.linePass {
+  background-color: white;
+  width: calc(32 / 19.2 * 1vw);
+  height: calc(2 / 19.2 * 1vw);
+  rotate: 145deg;
+  position: absolute;
 }

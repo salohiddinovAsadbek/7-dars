@@ -5,30 +5,55 @@ import { NavLink } from "react-router";
 import logo from "../img/facebook.svg";
 import logo1 from "../img/google.svg";
 import logo2 from "../img/apple.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginMain() {
-  const [username, setUserName] = useState("");
-  const [userpassword, setUserPassword] = useState("");
+  let [username, setUserName] = useState("");
+  let [userpassword, setUserPassword] = useState("");
   let userInfo = JSON.parse(localStorage.getItem("user")) || [];
-
+  let [useCheck, setCheck] = useState([]);
+  let [eyeHide, setHide] = useState("password");
+  let [styleCss, setStyle] = useState("0vw");
+  let navigate = useNavigate();
+  fetch("http://localhost:3000/users")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      setCheck(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   const Login = () => {
-    if (username !== "" && userpassword !== "") {
-      if (userInfo.length > 0) {
-        userInfo[0] = {
-          name: username,
-          password: userpassword,
-        };
-      } else if (userInfo.length === 0) {
-        userInfo.push({
-          name: username,
-          password: userpassword,
-        });
-      }
-    }
+    const userExist = useCheck.some((inson) => {
+      return inson.name === username && inson.userpassword === userpassword;
+    });
 
-    localStorage.setItem("user", JSON.stringify(userInfo));
+    if (userExist) {
+      navigate("/home");
+      setUserName("");
+      setUserPassword("");
+    } else {
+      alert("notogri");
+      setUserName("");
+      setUserPassword("");
+    }
   };
+
+  const Hide = () => {
+    if (eyeHide === "password") {
+      setHide("text");
+      setStyle("calc(32 / 19.2 * 1vw)");
+    } else {
+      setHide("password");
+      setStyle("0vw");
+    }
+  };
+
+  localStorage.setItem("user", JSON.stringify(userInfo));
+
   return (
     <div className="signMain">
       <h1 className="signTitle">Log in</h1>
@@ -39,21 +64,28 @@ function LoginMain() {
             type="text"
             placeholder="Username"
             onChange={(e) => setUserName(e.target.value)}
+            value={username}
           />
-          <img src={User} alt="user" />
+          <button>
+            <img src={User} alt="user" />
+          </button>
           <p></p>
         </div>
         <div>
           <input
-            type="text"
+            type={eyeHide}
             placeholder="Password"
+            value={userpassword}
             onChange={(e) => setUserPassword(e.target.value)}
           />
-          <img src={Eye} alt="user" />
+          <button onClick={Hide}>
+            <img src={Eye} alt="user" />
+            <p className="linePass" style={{ width: styleCss }}></p>
+          </button>
           <p></p>
         </div>
         <button onClick={Login}>
-          <NavLink to="/home">Log In</NavLink>
+          <NavLink>Log In</NavLink>
         </button>
       </div>
       <h1 className="or">Or</h1>
